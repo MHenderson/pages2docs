@@ -1,11 +1,11 @@
 mkdocs_pages_out <- function(X) {
   X |>
     dplyr::mutate(
-      day = format(ymd, "%A, %d"),
-      month = lubridate::month(ymd, label = TRUE, abbr = FALSE),
+           day = format(ymd, "%A, %d"),
+         month = lubridate::month(ymd, label = TRUE, abbr = FALSE),
       new_path = sub(".*/pages/", "docs/", paths),
-      new_dir = dirname(new_path),
-      text = sub("%", "#", text)
+       new_dir = dirname(new_path),
+          text = sub("%", "#", text)
     ) |>
     dplyr::group_by(month) |>
     dplyr::mutate(
