@@ -1,4 +1,4 @@
-pages_to_read <- function(pagespath, years = c(2023)) {
+pages_to_read <- function(pagespath, years) {
   tibble::tibble(
     paths = list.files(
             path = pagespath,
