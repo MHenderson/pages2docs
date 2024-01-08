@@ -4,19 +4,6 @@ mkdocs_pages_out <- function(X) {
            day = format(ymd, "%A, %d"),
          month = lubridate::month(ymd, label = TRUE, abbr = FALSE),
       new_path = sub(".*/pages/", "docs/", paths),
-          text = sub("%", "#", text)
-    ) |>
-    dplyr::group_by(month) |>
-    dplyr::mutate(
-      i = dplyr::row_number()
-    ) |>
-    dplyr::mutate(
-      header = dplyr::case_when(
-        i == 1 ~ paste0("# ", month, "\n\n"),
-        i != 1 ~ ""
-      ),
-      new_text = paste0(header, text, sep = "\n"),
-      new_text = text
-    ) |>
-    dplyr::ungroup()
+      new_text = sub("%", "#", text)
+    )
 }
